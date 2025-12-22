@@ -107,6 +107,7 @@ module "Virtual_machine" {
 
 # 9. Application Gateway
 module "application_gateway" {
+  depends_on = [ module.Virtual_machine ]
   source = "./module/azurerm_application_gateway"
   for_each = {
     for key, id in module.Virtual_network.subnet_ids : key => id
@@ -126,13 +127,26 @@ module "application_gateway" {
 
 # 10. SQL Server
 module "SQL_server" {
-  depends_on = [ module.resource_group, module.private_dns_zone ]
+  depends_on = [ module.resource_group,]
   source     = "./module/azurerm_SQL_server"
   SQL_server = var.SQL_server
   rg_nam     = var.Project.resource_group.rg1[0]
   locatio    = var.Project.resource_group.Location
   backend_subnet_id  = module.Virtual_network.subnet_ids["Backend"]
   sql_private_dns_zone_id = [module.private_dns_zone.Sql_dns1]
+}
+
+# 11. PRIVATE DNS ZONE (LAST)
+module "private_dns_zone" {
+  depends_on = [ module.resource_group, module.Virtual_network  ]
+  source              = "./module/azurerm_private_dns_zone"
+  rg_nam              = var.Project.resource_group.rg1[0]
+  locatio             = var.Project.resource_group.Location
+  dns_zone_name       = "privatelink.discoveryservice.internal"
+  virtual_network_ids = [module.Virtual_network.vnet_id]
+  record_name         = "discoveryservice"
+  private_ip          = "10.0.2.4"
+  vnet_id = module.Virtual_network.vnet_id
 }
 
 module "bastion_requ"{
@@ -146,19 +160,6 @@ module "bastion_requ"{
   locatio    = var.Project.resource_group.Location  
   bastion_subnet = module.Virtual_network.subnet_ids["AzureBastionSubnet"]
   bastion_ip = lookup(local.subnet_to_public_ip_map, each.key, null)
-}
-
-# 11. PRIVATE DNS ZONE (LAST)
-module "private_dns_zone" {
-  depends_on = [ module.resource_group, module.Virtual_network ]
-  source              = "./module/azurerm_private_dns_zone"
-  rg_nam              = var.Project.resource_group.rg1[0]
-  locatio             = var.Project.resource_group.Location
-  dns_zone_name       = "privatelink.discoveryservice.internal"
-  virtual_network_ids = [module.Virtual_network.vnet_id]
-  record_name         = "discoveryservice"
-  private_ip          = "10.0.2.4"
-  vnet_id = module.Virtual_network.vnet_id
 }
 
 # Outputs

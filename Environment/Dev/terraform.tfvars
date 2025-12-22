@@ -6,7 +6,7 @@ rg_location = "eastus"
 # AKS Cluster Variables
 cluster_name = "g15-aks-cluster"
 dns_prefix   = "g15akscluster"
-vm2take      = "Standard_D2lds_v6" #"standard_F2"
+vm2take      = "Standard_DC2s_v3" #"Standard_D2lds_v6" #"standard_F2"
 
 
 
