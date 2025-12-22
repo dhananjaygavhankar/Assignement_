@@ -18,6 +18,7 @@ module "Aks_infra" {
 module "Pair" {
   depends_on = [module.Aks_infra, module.vm_infra]
   source     = "../../infras/Peering"
+  peering_dns = module.vm_infra.pvt_dns_zone_peering_main
 }
 
 # Outputs
@@ -31,4 +32,8 @@ output "vnet_id1" {
 
 output "dns_zone_name1" {
   value = module.vm_infra.dns_zone_name
+}
+
+output "pvt_dns_zone_peering_main" {
+  value = module.vm_infra.pvt_dns_zone_peering_main
 }
