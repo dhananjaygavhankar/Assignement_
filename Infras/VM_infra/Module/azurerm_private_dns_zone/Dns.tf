@@ -7,6 +7,10 @@ resource "azurerm_private_dns_zone" "this" {
   }
 }
 
+output "pvt_dns_zone_peering" {
+  value = azurerm_private_dns_zone.this.name
+}
+
 # VNet Links
 resource "azurerm_private_dns_zone_virtual_network_link" "this" {
   count               = length(var.virtual_network_ids)

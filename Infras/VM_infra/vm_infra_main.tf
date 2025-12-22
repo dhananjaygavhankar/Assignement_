@@ -138,7 +138,7 @@ module "SQL_server" {
 
 # 11. PRIVATE DNS ZONE (LAST)
 module "private_dns_zone" {
-  depends_on = [ module.resource_group, module.Virtual_network  ]
+  depends_on = [ module.resource_group]
   source              = "./module/azurerm_private_dns_zone"
   rg_nam              = var.Project.resource_group.rg1[0]
   locatio             = var.Project.resource_group.Location
@@ -147,6 +147,10 @@ module "private_dns_zone" {
   record_name         = "discoveryservice"
   private_ip          = "10.0.2.4"
   vnet_id = module.Virtual_network.vnet_id
+}
+
+output "pvt_dns_zone_peering_main" {
+  value = module.private_dns_zone.pvt_dns_zone_peering
 }
 
 module "bastion_requ"{
