@@ -1,0 +1,149 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "data.azurerm_client_config.current" [label="data.azurerm_client_config.current"];
+  subgraph "cluster_module.Aks_infra" {
+    label = "module.Aks_infra"
+    fontname = "sans-serif"
+    "module.Aks_infra.azurerm_role_assignment.acr_pull" [label="azurerm_role_assignment.acr_pull"];
+  }
+  subgraph "cluster_module.Aks_infra.module.acr" {
+    label = "module.Aks_infra.module.acr"
+    fontname = "sans-serif"
+    "module.Aks_infra.module.acr.azurerm_container_registry.main" [label="azurerm_container_registry.main"];
+  }
+  subgraph "cluster_module.Aks_infra.module.aks" {
+    label = "module.Aks_infra.module.aks"
+    fontname = "sans-serif"
+    "module.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks" [label="azurerm_kubernetes_cluster.aks"];
+  }
+  subgraph "cluster_module.Aks_infra.module.rg" {
+    label = "module.Aks_infra.module.rg"
+    fontname = "sans-serif"
+    "module.Aks_infra.module.rg.azurerm_resource_group.aks_rg" [label="azurerm_resource_group.aks_rg"];
+  }
+  subgraph "cluster_module.Aks_infra.module.vnet" {
+    label = "module.Aks_infra.module.vnet"
+    fontname = "sans-serif"
+    "module.Aks_infra.module.vnet.azurerm_subnet.aks_subnet" [label="azurerm_subnet.aks_subnet"];
+    "module.Aks_infra.module.vnet.azurerm_virtual_network.aks_vnet" [label="azurerm_virtual_network.aks_vnet"];
+  }
+  subgraph "cluster_module.Pair" {
+    label = "module.Pair"
+    fontname = "sans-serif"
+    "module.Pair.data.azurerm_private_dns_zone.this" [label="data.azurerm_private_dns_zone.this"];
+    "module.Pair.data.azurerm_resource_group.aks_rg" [label="data.azurerm_resource_group.aks_rg"];
+    "module.Pair.data.azurerm_resource_group.for_each" [label="data.azurerm_resource_group.for_each"];
+    "module.Pair.data.azurerm_virtual_network.aks_vnet" [label="data.azurerm_virtual_network.aks_vnet"];
+    "module.Pair.data.azurerm_virtual_network.for_each" [label="data.azurerm_virtual_network.for_each"];
+    "module.Pair.azurerm_private_dns_zone_virtual_network_link.aks_vm_dns_link" [label="azurerm_private_dns_zone_virtual_network_link.aks_vm_dns_link"];
+    "module.Pair.azurerm_virtual_network_peering.aks_to_vm" [label="azurerm_virtual_network_peering.aks_to_vm"];
+    "module.Pair.azurerm_virtual_network_peering.vm_to_aks" [label="azurerm_virtual_network_peering.vm_to_aks"];
+  }
+  subgraph "cluster_module.vm_infra.module.NSG" {
+    label = "module.vm_infra.module.NSG"
+    fontname = "sans-serif"
+    "module.vm_infra.module.NSG.azurerm_network_security_group.rules" [label="azurerm_network_security_group.rules"];
+  }
+  subgraph "cluster_module.vm_infra.module.NSG_asso" {
+    label = "module.vm_infra.module.NSG_asso"
+    fontname = "sans-serif"
+    "module.vm_infra.module.NSG_asso.azurerm_network_interface_security_group_association.all_associations" [label="azurerm_network_interface_security_group_association.all_associations"];
+  }
+  subgraph "cluster_module.vm_infra.module.Network_interface" {
+    label = "module.vm_infra.module.Network_interface"
+    fontname = "sans-serif"
+    "module.vm_infra.module.Network_interface.azurerm_network_interface.for_each" [label="azurerm_network_interface.for_each"];
+  }
+  subgraph "cluster_module.vm_infra.module.SQL_server" {
+    label = "module.vm_infra.module.SQL_server"
+    fontname = "sans-serif"
+    "module.vm_infra.module.SQL_server.azurerm_mssql_database.db" [label="azurerm_mssql_database.db"];
+    "module.vm_infra.module.SQL_server.azurerm_mssql_server.main" [label="azurerm_mssql_server.main"];
+    "module.vm_infra.module.SQL_server.azurerm_private_endpoint.sql_pe" [label="azurerm_private_endpoint.sql_pe"];
+  }
+  subgraph "cluster_module.vm_infra.module.Virtual_machine" {
+    label = "module.vm_infra.module.Virtual_machine"
+    fontname = "sans-serif"
+    "module.vm_infra.module.Virtual_machine.azurerm_linux_virtual_machine.vm" [label="azurerm_linux_virtual_machine.vm"];
+  }
+  subgraph "cluster_module.vm_infra.module.Virtual_network" {
+    label = "module.vm_infra.module.Virtual_network"
+    fontname = "sans-serif"
+    "module.vm_infra.module.Virtual_network.azurerm_virtual_network.for_each" [label="azurerm_virtual_network.for_each"];
+  }
+  subgraph "cluster_module.vm_infra.module.application_gateway" {
+    label = "module.vm_infra.module.application_gateway"
+    fontname = "sans-serif"
+    "module.vm_infra.module.application_gateway.azurerm_application_gateway.network" [label="azurerm_application_gateway.network"];
+  }
+  subgraph "cluster_module.vm_infra.module.bastion_requ" {
+    label = "module.vm_infra.module.bastion_requ"
+    fontname = "sans-serif"
+    "module.vm_infra.module.bastion_requ.azurerm_bastion_host.main" [label="azurerm_bastion_host.main"];
+  }
+  subgraph "cluster_module.vm_infra.module.private_dns_zone" {
+    label = "module.vm_infra.module.private_dns_zone"
+    fontname = "sans-serif"
+    "module.vm_infra.module.private_dns_zone.azurerm_private_dns_a_record.this" [label="azurerm_private_dns_a_record.this"];
+    "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone.sql_dns" [label="azurerm_private_dns_zone.sql_dns"];
+    "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone.this" [label="azurerm_private_dns_zone.this"];
+    "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link" [label="azurerm_private_dns_zone_virtual_network_link.sql_dns_link"];
+    "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this" [label="azurerm_private_dns_zone_virtual_network_link.this"];
+  }
+  subgraph "cluster_module.vm_infra.module.public_ip" {
+    label = "module.vm_infra.module.public_ip"
+    fontname = "sans-serif"
+    "module.vm_infra.module.public_ip.azurerm_public_ip.for_each" [label="azurerm_public_ip.for_each"];
+  }
+  subgraph "cluster_module.vm_infra.module.resource_group" {
+    label = "module.vm_infra.module.resource_group"
+    fontname = "sans-serif"
+    "module.vm_infra.module.resource_group.azurerm_resource_group.for_each" [label="azurerm_resource_group.for_each"];
+  }
+  "module.Aks_infra.azurerm_role_assignment.acr_pull" -> "module.Aks_infra.module.acr.azurerm_container_registry.main";
+  "module.Aks_infra.module.acr.azurerm_container_registry.main" -> "module.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks";
+  "module.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks" -> "module.Aks_infra.module.vnet.azurerm_subnet.aks_subnet";
+  "module.Aks_infra.module.vnet.azurerm_subnet.aks_subnet" -> "module.Aks_infra.module.vnet.azurerm_virtual_network.aks_vnet";
+  "module.Aks_infra.module.vnet.azurerm_virtual_network.aks_vnet" -> "module.Aks_infra.module.rg.azurerm_resource_group.aks_rg";
+  "module.Pair.data.azurerm_private_dns_zone.this" -> "module.Pair.data.azurerm_resource_group.aks_rg";
+  "module.Pair.data.azurerm_resource_group.aks_rg" -> "module.Aks_infra.azurerm_role_assignment.acr_pull";
+  "module.Pair.data.azurerm_resource_group.aks_rg" -> "module.vm_infra.module.NSG_asso.azurerm_network_interface_security_group_association.all_associations";
+  "module.Pair.data.azurerm_resource_group.aks_rg" -> "module.vm_infra.module.Virtual_machine.azurerm_linux_virtual_machine.vm";
+  "module.Pair.data.azurerm_resource_group.aks_rg" -> "module.vm_infra.module.application_gateway.azurerm_application_gateway.network";
+  "module.Pair.data.azurerm_resource_group.aks_rg" -> "module.vm_infra.module.bastion_requ.azurerm_bastion_host.main";
+  "module.Pair.data.azurerm_resource_group.for_each" -> "module.Aks_infra.azurerm_role_assignment.acr_pull";
+  "module.Pair.data.azurerm_resource_group.for_each" -> "module.vm_infra.module.NSG_asso.azurerm_network_interface_security_group_association.all_associations";
+  "module.Pair.data.azurerm_resource_group.for_each" -> "module.vm_infra.module.Virtual_machine.azurerm_linux_virtual_machine.vm";
+  "module.Pair.data.azurerm_resource_group.for_each" -> "module.vm_infra.module.application_gateway.azurerm_application_gateway.network";
+  "module.Pair.data.azurerm_resource_group.for_each" -> "module.vm_infra.module.bastion_requ.azurerm_bastion_host.main";
+  "module.Pair.data.azurerm_virtual_network.aks_vnet" -> "module.Pair.data.azurerm_resource_group.aks_rg";
+  "module.Pair.data.azurerm_virtual_network.for_each" -> "module.Pair.data.azurerm_resource_group.for_each";
+  "module.Pair.azurerm_private_dns_zone_virtual_network_link.aks_vm_dns_link" -> "module.Pair.data.azurerm_private_dns_zone.this";
+  "module.Pair.azurerm_private_dns_zone_virtual_network_link.aks_vm_dns_link" -> "module.Pair.data.azurerm_virtual_network.aks_vnet";
+  "module.Pair.azurerm_virtual_network_peering.aks_to_vm" -> "module.Pair.data.azurerm_virtual_network.aks_vnet";
+  "module.Pair.azurerm_virtual_network_peering.aks_to_vm" -> "module.Pair.data.azurerm_virtual_network.for_each";
+  "module.Pair.azurerm_virtual_network_peering.vm_to_aks" -> "module.Pair.data.azurerm_virtual_network.aks_vnet";
+  "module.Pair.azurerm_virtual_network_peering.vm_to_aks" -> "module.Pair.data.azurerm_virtual_network.for_each";
+  "module.vm_infra.module.NSG.azurerm_network_security_group.rules" -> "module.vm_infra.module.resource_group.azurerm_resource_group.for_each";
+  "module.vm_infra.module.NSG_asso.azurerm_network_interface_security_group_association.all_associations" -> "module.vm_infra.module.Network_interface.azurerm_network_interface.for_each";
+  "module.vm_infra.module.Network_interface.azurerm_network_interface.for_each" -> "module.vm_infra.module.NSG.azurerm_network_security_group.rules";
+  "module.vm_infra.module.Network_interface.azurerm_network_interface.for_each" -> "module.vm_infra.module.public_ip.azurerm_public_ip.for_each";
+  "module.vm_infra.module.SQL_server.azurerm_mssql_database.db" -> "module.vm_infra.module.SQL_server.azurerm_mssql_server.main";
+  "module.vm_infra.module.SQL_server.azurerm_mssql_server.main" -> "module.vm_infra.module.private_dns_zone.azurerm_private_dns_a_record.this";
+  "module.vm_infra.module.SQL_server.azurerm_mssql_server.main" -> "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link";
+  "module.vm_infra.module.SQL_server.azurerm_mssql_server.main" -> "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this";
+  "module.vm_infra.module.SQL_server.azurerm_private_endpoint.sql_pe" -> "module.vm_infra.module.SQL_server.azurerm_mssql_server.main";
+  "module.vm_infra.module.Virtual_machine.azurerm_linux_virtual_machine.vm" -> "module.vm_infra.module.Network_interface.azurerm_network_interface.for_each";
+  "module.vm_infra.module.Virtual_network.azurerm_virtual_network.for_each" -> "module.vm_infra.module.resource_group.azurerm_resource_group.for_each";
+  "module.vm_infra.module.application_gateway.azurerm_application_gateway.network" -> "module.vm_infra.module.public_ip.azurerm_public_ip.for_each";
+  "module.vm_infra.module.bastion_requ.azurerm_bastion_host.main" -> "module.vm_infra.module.SQL_server.azurerm_mssql_database.db";
+  "module.vm_infra.module.bastion_requ.azurerm_bastion_host.main" -> "module.vm_infra.module.SQL_server.azurerm_private_endpoint.sql_pe";
+  "module.vm_infra.module.bastion_requ.azurerm_bastion_host.main" -> "module.vm_infra.module.public_ip.azurerm_public_ip.for_each";
+  "module.vm_infra.module.private_dns_zone.azurerm_private_dns_a_record.this" -> "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone.this";
+  "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone.sql_dns" -> "module.vm_infra.module.Virtual_network.azurerm_virtual_network.for_each";
+  "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone.this" -> "module.vm_infra.module.Virtual_network.azurerm_virtual_network.for_each";
+  "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link" -> "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone.sql_dns";
+  "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this" -> "module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone.this";
+  "module.vm_infra.module.public_ip.azurerm_public_ip.for_each" -> "module.vm_infra.module.Virtual_network.azurerm_virtual_network.for_each";
+}

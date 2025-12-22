@@ -1,6 +1,6 @@
 # Resource Group Variables
 name_rg     = "aks_r"
-rg_location = "centralindia"
+rg_location = "eastus"
 
 
 # AKS Cluster Variables
@@ -15,7 +15,7 @@ Project = {
   #================== for resource Group requirement==================
   resource_group = {
     rg1      = ["4_each"]
-    Location = "southindia"
+    Location = "centralindia"
   }
 
   #===================for virtual Network & subnet requirement========  
