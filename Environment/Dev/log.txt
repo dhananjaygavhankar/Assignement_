@@ -1,0 +1,1109 @@
+Acquiring state lock. This may take a few moments...
+[0m[1mdata.azurerm_client_config.current: Reading...[0m[0m
+[0m[1mmodule.Aks_infra.module.rg.azurerm_resource_group.aks_rg: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r][0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each][0m
+[0m[1mdata.azurerm_client_config.current: Read complete after 0s [id=Y2xpZW50Q29uZmlncy9jbGllbnRJZD0wNGIwNzc5NS04ZGRiLTQ2MWEtYmJlZS0wMmY5ZTFiZjdiNDY7b2JqZWN0SWQ9ZjU3NTFhNTEtMGYyMS00MDYwLTg5NDAtMGY3Y2ZhZGFlOGRkO3N1YnNjcmlwdGlvbklkPWZmMTk4MGFiLTExNzAtNDAxNC05NzFkLWRmNjVhYWJmMWU1Yjt0ZW5hbnRJZD02OTA4MTA1ZS04YjI0LTQ3OGItOGJjYi1jYWRlZDc4YTJiY2M=][0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone.sql_dns: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net][0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone.this: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/privateDnsZones/privatelink.discoveryservice.internal][0m
+[0m[1mmodule.vm_infra.module.NSG.azurerm_network_security_group.rules: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/networkSecurityGroups/NSG_rules][0m
+[0m[1mmodule.vm_infra.module.Virtual_network.azurerm_virtual_network.for_each: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet][0m
+[0m[1mmodule.Aks_infra.module.vnet.azurerm_virtual_network.aks_vnet: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.Network/virtualNetworks/aks-vnet][0m
+[0m[1mmodule.Aks_infra.module.vnet.azurerm_subnet.aks_subnet: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.Network/virtualNetworks/aks-vnet/subnets/aks-subnet][0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net/virtualNetworkLinks/sql-dns-link][0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/privateDnsZones/privatelink.discoveryservice.internal/virtualNetworkLinks/link-vnet-0-to-privatelink.discoveryservice.internal][0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_a_record.this[0]: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/privateDnsZones/privatelink.discoveryservice.internal/A/discoveryservice][0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.ContainerService/managedClusters/g15-aks-cluster][0m
+[0m[1mmodule.Aks_infra.module.acr.azurerm_container_registry.main: Refreshing state... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.ContainerRegistry/registries/dhandhandhana1215][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+ [36m<=[0m read (data resources)[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.Aks_infra.azurerm_role_assignment.acr_pull[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_role_assignment" "acr_pull" {
+      [32m+[0m[0m condition_version                = (known after apply)
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m name                             = (known after apply)
+      [32m+[0m[0m principal_id                     = (known after apply)
+      [32m+[0m[0m principal_type                   = (known after apply)
+      [32m+[0m[0m role_definition_id               = (known after apply)
+      [32m+[0m[0m role_definition_name             = "AcrPull"
+      [32m+[0m[0m scope                            = (known after apply)
+      [32m+[0m[0m skip_service_principal_aad_check = (known after apply)
+    }
+
+[1m  # module.Pair.data.azurerm_private_dns_zone.this[0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "azurerm_private_dns_zone" "this" {
+      [32m+[0m[0m id                                                    = (known after apply)
+      [32m+[0m[0m max_number_of_record_sets                             = (known after apply)
+      [32m+[0m[0m max_number_of_virtual_network_links                   = (known after apply)
+      [32m+[0m[0m max_number_of_virtual_network_links_with_registration = (known after apply)
+      [32m+[0m[0m name                                                  = "privatelink.discoveryservice.internal"
+      [32m+[0m[0m number_of_record_sets                                 = (known after apply)
+      [32m+[0m[0m resource_group_name                                   = "4_each"
+    }
+
+[1m  # module.Pair.data.azurerm_resource_group.aks_rg[0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "azurerm_resource_group" "aks_rg" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m location   = (known after apply)
+      [32m+[0m[0m managed_by = (known after apply)
+      [32m+[0m[0m name       = "aks_r"
+      [32m+[0m[0m tags       = (known after apply)
+    }
+
+[1m  # module.Pair.data.azurerm_resource_group.for_each[0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "azurerm_resource_group" "for_each" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m location   = (known after apply)
+      [32m+[0m[0m managed_by = (known after apply)
+      [32m+[0m[0m name       = "4_each"
+      [32m+[0m[0m tags       = (known after apply)
+    }
+
+[1m  # module.Pair.data.azurerm_virtual_network.aks_vnet[0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "azurerm_virtual_network" "aks_vnet" {
+      [32m+[0m[0m address_space           = (known after apply)
+      [32m+[0m[0m dns_servers             = (known after apply)
+      [32m+[0m[0m guid                    = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m location                = (known after apply)
+      [32m+[0m[0m name                    = "aks-vnet"
+      [32m+[0m[0m resource_group_name     = "aks_r"
+      [32m+[0m[0m subnets                 = (known after apply)
+      [32m+[0m[0m tags                    = (known after apply)
+      [32m+[0m[0m vnet_peerings           = (known after apply)
+      [32m+[0m[0m vnet_peerings_addresses = (known after apply)
+    }
+
+[1m  # module.Pair.data.azurerm_virtual_network.for_each[0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "azurerm_virtual_network" "for_each" {
+      [32m+[0m[0m address_space           = (known after apply)
+      [32m+[0m[0m dns_servers             = (known after apply)
+      [32m+[0m[0m guid                    = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m location                = (known after apply)
+      [32m+[0m[0m name                    = "4_each_vnet"
+      [32m+[0m[0m resource_group_name     = "4_each"
+      [32m+[0m[0m subnets                 = (known after apply)
+      [32m+[0m[0m tags                    = (known after apply)
+      [32m+[0m[0m vnet_peerings           = (known after apply)
+      [32m+[0m[0m vnet_peerings_addresses = (known after apply)
+    }
+
+[1m  # module.Pair.azurerm_private_dns_zone_virtual_network_link.aks_vm_dns_link[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_private_dns_zone_virtual_network_link" "aks_vm_dns_link" {
+      [32m+[0m[0m id                    = (known after apply)
+      [32m+[0m[0m name                  = "aks-link-to-privatelink.discoveryservice.internal"
+      [32m+[0m[0m private_dns_zone_name = "privatelink.discoveryservice.internal"
+      [32m+[0m[0m registration_enabled  = false
+      [32m+[0m[0m resolution_policy     = (known after apply)
+      [32m+[0m[0m resource_group_name   = "4_each"
+      [32m+[0m[0m virtual_network_id    = (known after apply)
+    }
+
+[1m  # module.Pair.azurerm_virtual_network_peering.aks_to_vm[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_virtual_network_peering" "aks_to_vm" {
+      [32m+[0m[0m allow_forwarded_traffic                = true
+      [32m+[0m[0m allow_gateway_transit                  = false
+      [32m+[0m[0m allow_virtual_network_access           = true
+      [32m+[0m[0m id                                     = (known after apply)
+      [32m+[0m[0m name                                   = "aks-to-vm-peering"
+      [32m+[0m[0m peer_complete_virtual_networks_enabled = true
+      [32m+[0m[0m remote_virtual_network_id              = (known after apply)
+      [32m+[0m[0m resource_group_name                    = "aks_r"
+      [32m+[0m[0m use_remote_gateways                    = false
+      [32m+[0m[0m virtual_network_name                   = "aks-vnet"
+    }
+
+[1m  # module.Pair.azurerm_virtual_network_peering.vm_to_aks[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_virtual_network_peering" "vm_to_aks" {
+      [32m+[0m[0m allow_forwarded_traffic                = true
+      [32m+[0m[0m allow_gateway_transit                  = false
+      [32m+[0m[0m allow_virtual_network_access           = true
+      [32m+[0m[0m id                                     = (known after apply)
+      [32m+[0m[0m name                                   = "vm-to-aks-peering"
+      [32m+[0m[0m peer_complete_virtual_networks_enabled = true
+      [32m+[0m[0m remote_virtual_network_id              = (known after apply)
+      [32m+[0m[0m resource_group_name                    = "4_each"
+      [32m+[0m[0m use_remote_gateways                    = false
+      [32m+[0m[0m virtual_network_name                   = "4_each_vnet"
+    }
+
+[1m  # module.Aks_infra.module.acr.azurerm_container_registry.main[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "azurerm_container_registry" "main" {
+      [32m+[0m[0m admin_password                = (sensitive value)
+      [32m+[0m[0m admin_username                = (known after apply)
+      [31m-[0m[0m anonymous_pull_enabled        = false [90m-> null[0m[0m
+      [31m-[0m[0m data_endpoint_enabled         = false [90m-> null[0m[0m
+      [33m~[0m[0m data_endpoint_host_names      = [] -> (known after apply)
+      [33m~[0m[0m encryption                    = [] -> (known after apply)
+      [33m~[0m[0m id                            = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.ContainerRegistry/registries/dhandhandhana1215" -> (known after apply)
+      [33m~[0m[0m location                      = "centralindia" [33m->[0m[0m "eastus" [31m# forces replacement[0m[0m
+      [33m~[0m[0m login_server                  = "dhandhandhana1215.azurecr.io" -> (known after apply)
+        name                          = "dhandhandhana1215"
+      [33m~[0m[0m network_rule_set              = [
+          [31m-[0m[0m {
+              [31m-[0m[0m default_action = "Allow"
+              [31m-[0m[0m ip_rule        = []
+            },
+        ] -> (known after apply)
+      [31m-[0m[0m quarantine_policy_enabled     = false [90m-> null[0m[0m
+      [31m-[0m[0m retention_policy_in_days      = 0 [90m-> null[0m[0m
+      [31m-[0m[0m tags                          = {} [90m-> null[0m[0m
+        [90m# (8 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "azurerm_kubernetes_cluster" "aks" {
+      [31m-[0m[0m azure_policy_enabled                = false [90m-> null[0m[0m
+      [31m-[0m[0m cost_analysis_enabled               = false [90m-> null[0m[0m
+      [33m~[0m[0m current_kubernetes_version          = "1.33.5" -> (known after apply)
+      [31m-[0m[0m custom_ca_trust_certificates_base64 = [] [90m-> null[0m[0m
+      [33m~[0m[0m fqdn                                = "g15akscluster-gy38dv7q.hcp.centralindia.azmk8s.io" -> (known after apply)
+      [31m-[0m[0m http_application_routing_enabled    = false [90m-> null[0m[0m
+      [32m+[0m[0m http_application_routing_zone_name  = (known after apply)
+      [33m~[0m[0m id                                  = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.ContainerService/managedClusters/g15-aks-cluster" -> (known after apply)
+      [33m~[0m[0m kube_admin_config                   = (sensitive value)
+      [32m+[0m[0m kube_admin_config_raw               = (sensitive value)
+      [33m~[0m[0m kube_config                         = (sensitive value)
+      [33m~[0m[0m kube_config_raw                     = (sensitive value)
+      [33m~[0m[0m kubernetes_version                  = "1.33" -> (known after apply)
+      [31m-[0m[0m local_account_disabled              = false [90m-> null[0m[0m
+      [33m~[0m[0m location                            = "centralindia" [33m->[0m[0m "eastus" [31m# forces replacement[0m[0m
+        name                                = "g15-aks-cluster"
+      [33m~[0m[0m node_resource_group                 = "MC_aks_r_g15-aks-cluster_centralindia" -> (known after apply)
+      [33m~[0m[0m node_resource_group_id              = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/MC_aks_r_g15-aks-cluster_centralindia" -> (known after apply)
+      [31m-[0m[0m oidc_issuer_enabled                 = false [90m-> null[0m[0m
+      [32m+[0m[0m oidc_issuer_url                     = (known after apply)
+      [31m-[0m[0m open_service_mesh_enabled           = false [90m-> null[0m[0m
+      [33m~[0m[0m portal_fqdn                         = "g15akscluster-gy38dv7q.portal.hcp.centralindia.azmk8s.io" -> (known after apply)
+      [32m+[0m[0m private_dns_zone_id                 = (known after apply)
+      [32m+[0m[0m private_fqdn                        = (known after apply)
+      [31m-[0m[0m tags                                = {} [90m-> null[0m[0m
+        [90m# (15 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m auto_scaler_profile (known after apply)
+
+      [33m~[0m[0m bootstrap_profile (known after apply)
+      [31m-[0m[0m bootstrap_profile {
+          [31m-[0m[0m artifact_source       = "Direct" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [33m~[0m[0m default_node_pool {
+          [31m-[0m[0m auto_scaling_enabled          = false [90m-> null[0m[0m
+          [31m-[0m[0m fips_enabled                  = false [90m-> null[0m[0m
+          [31m-[0m[0m host_encryption_enabled       = false [90m-> null[0m[0m
+          [33m~[0m[0m kubelet_disk_type             = "OS" -> (known after apply)
+          [31m-[0m[0m max_count                     = 0 [90m-> null[0m[0m
+          [33m~[0m[0m max_pods                      = 30 -> (known after apply)
+          [31m-[0m[0m min_count                     = 0 [90m-> null[0m[0m
+            name                          = "default"
+          [33m~[0m[0m node_labels                   = {} -> (known after apply)
+          [31m-[0m[0m node_public_ip_enabled        = false [90m-> null[0m[0m
+          [31m-[0m[0m only_critical_addons_enabled  = false [90m-> null[0m[0m
+          [33m~[0m[0m orchestrator_version          = "1.33" -> (known after apply)
+          [33m~[0m[0m os_disk_size_gb               = 128 -> (known after apply)
+          [33m~[0m[0m os_sku                        = "Ubuntu" -> (known after apply)
+          [31m-[0m[0m tags                          = {} [90m-> null[0m[0m
+          [33m~[0m[0m vm_size                       = "Standard_D2lds_v6" [33m->[0m[0m "Standard_DC2s_v3"
+          [32m+[0m[0m workload_runtime              = (known after apply)
+          [31m-[0m[0m zones                         = [] [90m-> null[0m[0m
+            [90m# (15 unchanged attributes hidden)[0m[0m
+
+          [31m-[0m[0m upgrade_settings {
+              [31m-[0m[0m drain_timeout_in_minutes      = 0 [90m-> null[0m[0m
+              [31m-[0m[0m max_surge                     = "10%" [90m-> null[0m[0m
+              [31m-[0m[0m node_soak_duration_in_minutes = 0 [90m-> null[0m[0m
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            }
+        }
+
+      [33m~[0m[0m identity {
+          [31m-[0m[0m identity_ids = [] [90m-> null[0m[0m
+          [33m~[0m[0m principal_id = "a7becf97-bf5f-4d08-b641-d6c941d68b47" -> (known after apply)
+          [33m~[0m[0m tenant_id    = "6908105e-8b24-478b-8bcb-caded78a2bcc" -> (known after apply)
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [33m~[0m[0m kubelet_identity (known after apply)
+      [31m-[0m[0m kubelet_identity {
+          [31m-[0m[0m client_id                 = "8401ef7b-e5cc-469b-b856-e3d46cf06266" [90m-> null[0m[0m
+          [31m-[0m[0m object_id                 = "830021f0-5143-401a-9d19-1b371192a4ef" [90m-> null[0m[0m
+          [31m-[0m[0m user_assigned_identity_id = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/MC_aks_r_g15-aks-cluster_centralindia/providers/Microsoft.ManagedIdentity/userAssignedIdentities/g15-aks-cluster-agentpool" [90m-> null[0m[0m
+        }
+
+      [33m~[0m[0m network_profile {
+          [33m~[0m[0m dns_service_ip      = "10.0.0.10" -> (known after apply)
+          [33m~[0m[0m ip_versions         = [
+              [31m-[0m[0m "IPv4",
+            ] -> (known after apply)
+          [32m+[0m[0m network_mode        = (known after apply)
+          [32m+[0m[0m pod_cidr            = (known after apply)
+          [33m~[0m[0m pod_cidrs           = [] -> (known after apply)
+          [33m~[0m[0m service_cidr        = "10.0.0.0/16" -> (known after apply)
+          [33m~[0m[0m service_cidrs       = [
+              [31m-[0m[0m "10.0.0.0/16",
+            ] -> (known after apply)
+            [90m# (6 unchanged attributes hidden)[0m[0m
+
+          [33m~[0m[0m load_balancer_profile (known after apply)
+          [31m-[0m[0m load_balancer_profile {
+              [31m-[0m[0m backend_pool_type           = "NodeIPConfiguration" [90m-> null[0m[0m
+              [31m-[0m[0m effective_outbound_ips      = [
+                  [31m-[0m[0m "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/MC_aks_r_g15-aks-cluster_centralindia/providers/Microsoft.Network/publicIPAddresses/d8a64236-ca6d-416b-b19d-3c3516a341ca",
+                ] [90m-> null[0m[0m
+              [31m-[0m[0m idle_timeout_in_minutes     = 0 [90m-> null[0m[0m
+              [31m-[0m[0m managed_outbound_ip_count   = 1 [90m-> null[0m[0m
+              [31m-[0m[0m managed_outbound_ipv6_count = 0 [90m-> null[0m[0m
+              [31m-[0m[0m outbound_ip_address_ids     = [] [90m-> null[0m[0m
+              [31m-[0m[0m outbound_ip_prefix_ids      = [] [90m-> null[0m[0m
+              [31m-[0m[0m outbound_ports_allocated    = 0 [90m-> null[0m[0m
+            }
+
+          [33m~[0m[0m nat_gateway_profile (known after apply)
+        }
+
+      [33m~[0m[0m node_provisioning_profile (known after apply)
+      [31m-[0m[0m node_provisioning_profile {
+          [31m-[0m[0m default_node_pools = "Auto" [90m-> null[0m[0m
+          [31m-[0m[0m mode               = "Manual" [90m-> null[0m[0m
+        }
+
+      [33m~[0m[0m windows_profile (known after apply)
+      [31m-[0m[0m windows_profile {
+          [31m-[0m[0m admin_username = "azureuser" [90m-> null[0m[0m
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        }
+    }
+
+[1m  # module.Aks_infra.module.rg.azurerm_resource_group.aks_rg[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "azurerm_resource_group" "aks_rg" {
+      [33m~[0m[0m id         = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r" -> (known after apply)
+      [33m~[0m[0m location   = "centralindia" [33m->[0m[0m "eastus" [31m# forces replacement[0m[0m
+        name       = "aks_r"
+      [31m-[0m[0m tags       = {} [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.Aks_infra.module.vnet.azurerm_virtual_network.aks_vnet[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "azurerm_virtual_network" "aks_vnet" {
+      [33m~[0m[0m dns_servers                    = [] -> (known after apply)
+      [31m-[0m[0m flow_timeout_in_minutes        = 0 [90m-> null[0m[0m
+      [33m~[0m[0m guid                           = "bcf6532c-d42b-421a-82dc-fdf4dc6f4cb2" -> (known after apply)
+      [33m~[0m[0m id                             = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.Network/virtualNetworks/aks-vnet" -> (known after apply)
+      [33m~[0m[0m location                       = "centralindia" [33m->[0m[0m "eastus" [31m# forces replacement[0m[0m
+        name                           = "aks-vnet"
+      [33m~[0m[0m subnet                         = [
+          [31m-[0m[0m {
+              [31m-[0m[0m address_prefixes                              = [
+                  [31m-[0m[0m "10.1.0.0/16",
+                ]
+              [31m-[0m[0m default_outbound_access_enabled               = true
+              [31m-[0m[0m delegation                                    = []
+              [31m-[0m[0m id                                            = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.Network/virtualNetworks/aks-vnet/subnets/aks-subnet"
+              [31m-[0m[0m name                                          = "aks-subnet"
+              [31m-[0m[0m private_endpoint_network_policies             = "Disabled"
+              [31m-[0m[0m private_link_service_network_policies_enabled = true
+              [31m-[0m[0m service_endpoint_policy_ids                   = []
+              [31m-[0m[0m service_endpoints                             = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+        ] -> (known after apply)
+      [31m-[0m[0m tags                           = {} [90m-> null[0m[0m
+        [90m# (5 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vm_infra.module.NSG.azurerm_network_security_group.rules[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "azurerm_network_security_group" "rules" {
+      [33m~[0m[0m id                  = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/networkSecurityGroups/NSG_rules" -> (known after apply)
+      [33m~[0m[0m location            = "southindia" [33m->[0m[0m "centralindia" [31m# forces replacement[0m[0m
+        name                = "NSG_rules"
+      [33m~[0m[0m security_rule       = [
+          [31m-[0m[0m {
+              [31m-[0m[0m access                                     = "Allow"
+              [31m-[0m[0m destination_address_prefix                 = "*"
+              [31m-[0m[0m destination_address_prefixes               = []
+              [31m-[0m[0m destination_application_security_group_ids = []
+              [31m-[0m[0m destination_port_range                     = "22"
+              [31m-[0m[0m destination_port_ranges                    = []
+              [31m-[0m[0m direction                                  = "Inbound"
+              [31m-[0m[0m name                                       = "allow-ssh"
+              [31m-[0m[0m priority                                   = 100
+              [31m-[0m[0m protocol                                   = "Tcp"
+              [31m-[0m[0m source_address_prefix                      = "*"
+              [31m-[0m[0m source_address_prefixes                    = []
+              [31m-[0m[0m source_application_security_group_ids      = []
+              [31m-[0m[0m source_port_range                          = "*"
+              [31m-[0m[0m source_port_ranges                         = []
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+          [32m+[0m[0m {
+              [32m+[0m[0m access                                     = "Allow"
+              [32m+[0m[0m destination_address_prefix                 = "*"
+              [32m+[0m[0m destination_address_prefixes               = []
+              [32m+[0m[0m destination_application_security_group_ids = []
+              [32m+[0m[0m destination_port_range                     = "22"
+              [32m+[0m[0m destination_port_ranges                    = []
+              [32m+[0m[0m direction                                  = "Inbound"
+              [32m+[0m[0m name                                       = "allow-ssh"
+              [32m+[0m[0m priority                                   = 100
+              [32m+[0m[0m protocol                                   = "Tcp"
+              [32m+[0m[0m source_address_prefix                      = "VirtualNetwork"
+              [32m+[0m[0m source_address_prefixes                    = []
+              [32m+[0m[0m source_application_security_group_ids      = []
+              [32m+[0m[0m source_port_range                          = "*"
+              [32m+[0m[0m source_port_ranges                         = []
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+            [90m# (1 unchanged element hidden)[0m[0m
+        ]
+      [31m-[0m[0m tags                = {} [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vm_infra.module.NSG_asso["Backend"].azurerm_network_interface_security_group_association.all_associations[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_network_interface_security_group_association" "all_associations" {
+      [32m+[0m[0m id                        = (known after apply)
+      [32m+[0m[0m network_interface_id      = (known after apply)
+      [32m+[0m[0m network_security_group_id = (known after apply)
+    }
+
+[1m  # module.vm_infra.module.NSG_asso["Frontend"].azurerm_network_interface_security_group_association.all_associations[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_network_interface_security_group_association" "all_associations" {
+      [32m+[0m[0m id                        = (known after apply)
+      [32m+[0m[0m network_interface_id      = (known after apply)
+      [32m+[0m[0m network_security_group_id = (known after apply)
+    }
+
+[1m  # module.vm_infra.module.Network_interface["Backend"].azurerm_network_interface.for_each[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_network_interface" "for_each" {
+      [32m+[0m[0m accelerated_networking_enabled = false
+      [32m+[0m[0m applied_dns_servers            = (known after apply)
+      [32m+[0m[0m id                             = (known after apply)
+      [32m+[0m[0m internal_domain_name_suffix    = (known after apply)
+      [32m+[0m[0m ip_forwarding_enabled          = false
+      [32m+[0m[0m location                       = "centralindia"
+      [32m+[0m[0m mac_address                    = (known after apply)
+      [32m+[0m[0m name                           = "Backend"
+      [32m+[0m[0m private_ip_address             = (known after apply)
+      [32m+[0m[0m private_ip_addresses           = (known after apply)
+      [32m+[0m[0m resource_group_name            = "4_each"
+      [32m+[0m[0m virtual_machine_id             = (known after apply)
+
+      [32m+[0m[0m ip_configuration {
+          [32m+[0m[0m gateway_load_balancer_frontend_ip_configuration_id = (known after apply)
+          [32m+[0m[0m name                                               = "internal"
+          [32m+[0m[0m primary                                            = (known after apply)
+          [32m+[0m[0m private_ip_address                                 = (known after apply)
+          [32m+[0m[0m private_ip_address_allocation                      = "Dynamic"
+          [32m+[0m[0m private_ip_address_version                         = "IPv4"
+          [32m+[0m[0m subnet_id                                          = (known after apply)
+        }
+    }
+
+[1m  # module.vm_infra.module.Network_interface["Frontend"].azurerm_network_interface.for_each[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_network_interface" "for_each" {
+      [32m+[0m[0m accelerated_networking_enabled = false
+      [32m+[0m[0m applied_dns_servers            = (known after apply)
+      [32m+[0m[0m id                             = (known after apply)
+      [32m+[0m[0m internal_domain_name_suffix    = (known after apply)
+      [32m+[0m[0m ip_forwarding_enabled          = false
+      [32m+[0m[0m location                       = "centralindia"
+      [32m+[0m[0m mac_address                    = (known after apply)
+      [32m+[0m[0m name                           = "Frontend"
+      [32m+[0m[0m private_ip_address             = (known after apply)
+      [32m+[0m[0m private_ip_addresses           = (known after apply)
+      [32m+[0m[0m resource_group_name            = "4_each"
+      [32m+[0m[0m virtual_machine_id             = (known after apply)
+
+      [32m+[0m[0m ip_configuration {
+          [32m+[0m[0m gateway_load_balancer_frontend_ip_configuration_id = (known after apply)
+          [32m+[0m[0m name                                               = "internal"
+          [32m+[0m[0m primary                                            = (known after apply)
+          [32m+[0m[0m private_ip_address                                 = (known after apply)
+          [32m+[0m[0m private_ip_address_allocation                      = "Dynamic"
+          [32m+[0m[0m private_ip_address_version                         = "IPv4"
+          [32m+[0m[0m public_ip_address_id                               = (known after apply)
+          [32m+[0m[0m subnet_id                                          = (known after apply)
+        }
+    }
+
+[1m  # module.vm_infra.module.SQL_server.azurerm_mssql_database.db[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_mssql_database" "db" {
+      [32m+[0m[0m auto_pause_delay_in_minutes                                = (known after apply)
+      [32m+[0m[0m collation                                                  = (known after apply)
+      [32m+[0m[0m create_mode                                                = "Default"
+      [32m+[0m[0m creation_source_database_id                                = (known after apply)
+      [32m+[0m[0m enclave_type                                               = (known after apply)
+      [32m+[0m[0m geo_backup_enabled                                         = true
+      [32m+[0m[0m id                                                         = (known after apply)
+      [32m+[0m[0m ledger_enabled                                             = (known after apply)
+      [32m+[0m[0m license_type                                               = (known after apply)
+      [32m+[0m[0m maintenance_configuration_name                             = (known after apply)
+      [32m+[0m[0m max_size_gb                                                = (known after apply)
+      [32m+[0m[0m min_capacity                                               = (known after apply)
+      [32m+[0m[0m name                                                       = "dhanajaysqlserver"
+      [32m+[0m[0m read_replica_count                                         = (known after apply)
+      [32m+[0m[0m read_scale                                                 = (known after apply)
+      [32m+[0m[0m restore_point_in_time                                      = (known after apply)
+      [32m+[0m[0m sample_name                                                = (known after apply)
+      [32m+[0m[0m secondary_type                                             = (known after apply)
+      [32m+[0m[0m server_id                                                  = (known after apply)
+      [32m+[0m[0m sku_name                                                   = (known after apply)
+      [32m+[0m[0m storage_account_type                                       = "Geo"
+      [32m+[0m[0m transparent_data_encryption_enabled                        = true
+      [32m+[0m[0m transparent_data_encryption_key_automatic_rotation_enabled = false
+      [32m+[0m[0m zone_redundant                                             = (known after apply)
+
+      [32m+[0m[0m long_term_retention_policy (known after apply)
+
+      [32m+[0m[0m short_term_retention_policy (known after apply)
+
+      [32m+[0m[0m threat_detection_policy (known after apply)
+    }
+
+[1m  # module.vm_infra.module.SQL_server.azurerm_mssql_server.main[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_mssql_server" "main" {
+      [32m+[0m[0m administrator_login                      = "missadministrator"
+      [32m+[0m[0m administrator_login_password             = (sensitive value)
+      [32m+[0m[0m administrator_login_password_wo          = (write-only attribute)
+      [32m+[0m[0m connection_policy                        = "Default"
+      [32m+[0m[0m express_vulnerability_assessment_enabled = false
+      [32m+[0m[0m fully_qualified_domain_name              = (known after apply)
+      [32m+[0m[0m id                                       = (known after apply)
+      [32m+[0m[0m location                                 = "centralindia"
+      [32m+[0m[0m minimum_tls_version                      = "1.2"
+      [32m+[0m[0m name                                     = "dhanajaysqlserver"
+      [32m+[0m[0m outbound_network_restriction_enabled     = false
+      [32m+[0m[0m primary_user_assigned_identity_id        = (known after apply)
+      [32m+[0m[0m public_network_access_enabled            = false
+      [32m+[0m[0m resource_group_name                      = "4_each"
+      [32m+[0m[0m restorable_dropped_database_ids          = (known after apply)
+      [32m+[0m[0m version                                  = "12.0"
+    }
+
+[1m  # module.vm_infra.module.SQL_server.azurerm_private_endpoint.sql_pe[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_private_endpoint" "sql_pe" {
+      [32m+[0m[0m custom_dns_configs       = (known after apply)
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m location                 = "centralindia"
+      [32m+[0m[0m name                     = "sql-private-endpoint"
+      [32m+[0m[0m network_interface        = (known after apply)
+      [32m+[0m[0m private_dns_zone_configs = (known after apply)
+      [32m+[0m[0m resource_group_name      = "4_each"
+      [32m+[0m[0m subnet_id                = (known after apply)
+
+      [32m+[0m[0m private_dns_zone_group {
+          [32m+[0m[0m id                   = (known after apply)
+          [32m+[0m[0m name                 = "sql-dns-group"
+          [32m+[0m[0m private_dns_zone_ids = [
+              [32m+[0m[0m "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net",
+            ]
+        }
+
+      [32m+[0m[0m private_service_connection {
+          [32m+[0m[0m is_manual_connection           = false
+          [32m+[0m[0m name                           = "sql-connection"
+          [32m+[0m[0m private_connection_resource_id = (known after apply)
+          [32m+[0m[0m private_ip_address             = (known after apply)
+          [32m+[0m[0m subresource_names              = [
+              [32m+[0m[0m "sqlServer",
+            ]
+        }
+    }
+
+[1m  # module.vm_infra.module.Virtual_machine["Backend"].azurerm_linux_virtual_machine.vm[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_linux_virtual_machine" "vm" {
+      [32m+[0m[0m admin_password                                         = (sensitive value)
+      [32m+[0m[0m admin_username                                         = "adminuser"
+      [32m+[0m[0m allow_extension_operations                             = (known after apply)
+      [32m+[0m[0m bypass_platform_safety_checks_on_user_schedule_enabled = false
+      [32m+[0m[0m computer_name                                          = (known after apply)
+      [32m+[0m[0m custom_data                                            = (sensitive value)
+      [32m+[0m[0m disable_password_authentication                        = false
+      [32m+[0m[0m disk_controller_type                                   = (known after apply)
+      [32m+[0m[0m extensions_time_budget                                 = "PT1H30M"
+      [32m+[0m[0m id                                                     = (known after apply)
+      [32m+[0m[0m location                                               = "centralindia"
+      [32m+[0m[0m max_bid_price                                          = -1
+      [32m+[0m[0m name                                                   = "Backend-Vm"
+      [32m+[0m[0m network_interface_ids                                  = (known after apply)
+      [32m+[0m[0m os_managed_disk_id                                     = (known after apply)
+      [32m+[0m[0m patch_assessment_mode                                  = (known after apply)
+      [32m+[0m[0m patch_mode                                             = (known after apply)
+      [32m+[0m[0m platform_fault_domain                                  = -1
+      [32m+[0m[0m priority                                               = "Regular"
+      [32m+[0m[0m private_ip_address                                     = (known after apply)
+      [32m+[0m[0m private_ip_addresses                                   = (known after apply)
+      [32m+[0m[0m provision_vm_agent                                     = (known after apply)
+      [32m+[0m[0m public_ip_address                                      = (known after apply)
+      [32m+[0m[0m public_ip_addresses                                    = (known after apply)
+      [32m+[0m[0m resource_group_name                                    = "4_each"
+      [32m+[0m[0m size                                                   = "Standard_D2ls_v5"
+      [32m+[0m[0m virtual_machine_id                                     = (known after apply)
+      [32m+[0m[0m vm_agent_platform_updates_enabled                      = (known after apply)
+
+      [32m+[0m[0m os_disk {
+          [32m+[0m[0m caching                   = "ReadWrite"
+          [32m+[0m[0m disk_size_gb              = (known after apply)
+          [32m+[0m[0m id                        = (known after apply)
+          [32m+[0m[0m name                      = (known after apply)
+          [32m+[0m[0m storage_account_type      = "Standard_LRS"
+          [32m+[0m[0m write_accelerator_enabled = false
+        }
+
+      [32m+[0m[0m source_image_reference {
+          [32m+[0m[0m offer     = "0001-com-ubuntu-server-jammy"
+          [32m+[0m[0m publisher = "Canonical"
+          [32m+[0m[0m sku       = "22_04-lts"
+          [32m+[0m[0m version   = "latest"
+        }
+
+      [32m+[0m[0m termination_notification (known after apply)
+    }
+
+[1m  # module.vm_infra.module.Virtual_machine["Frontend"].azurerm_linux_virtual_machine.vm[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_linux_virtual_machine" "vm" {
+      [32m+[0m[0m admin_password                                         = (sensitive value)
+      [32m+[0m[0m admin_username                                         = "adminuser"
+      [32m+[0m[0m allow_extension_operations                             = (known after apply)
+      [32m+[0m[0m bypass_platform_safety_checks_on_user_schedule_enabled = false
+      [32m+[0m[0m computer_name                                          = (known after apply)
+      [32m+[0m[0m custom_data                                            = (sensitive value)
+      [32m+[0m[0m disable_password_authentication                        = false
+      [32m+[0m[0m disk_controller_type                                   = (known after apply)
+      [32m+[0m[0m extensions_time_budget                                 = "PT1H30M"
+      [32m+[0m[0m id                                                     = (known after apply)
+      [32m+[0m[0m location                                               = "centralindia"
+      [32m+[0m[0m max_bid_price                                          = -1
+      [32m+[0m[0m name                                                   = "Frontend-Vm"
+      [32m+[0m[0m network_interface_ids                                  = (known after apply)
+      [32m+[0m[0m os_managed_disk_id                                     = (known after apply)
+      [32m+[0m[0m patch_assessment_mode                                  = (known after apply)
+      [32m+[0m[0m patch_mode                                             = (known after apply)
+      [32m+[0m[0m platform_fault_domain                                  = -1
+      [32m+[0m[0m priority                                               = "Regular"
+      [32m+[0m[0m private_ip_address                                     = (known after apply)
+      [32m+[0m[0m private_ip_addresses                                   = (known after apply)
+      [32m+[0m[0m provision_vm_agent                                     = (known after apply)
+      [32m+[0m[0m public_ip_address                                      = (known after apply)
+      [32m+[0m[0m public_ip_addresses                                    = (known after apply)
+      [32m+[0m[0m resource_group_name                                    = "4_each"
+      [32m+[0m[0m size                                                   = "Standard_D2ls_v5"
+      [32m+[0m[0m virtual_machine_id                                     = (known after apply)
+      [32m+[0m[0m vm_agent_platform_updates_enabled                      = (known after apply)
+
+      [32m+[0m[0m os_disk {
+          [32m+[0m[0m caching                   = "ReadWrite"
+          [32m+[0m[0m disk_size_gb              = (known after apply)
+          [32m+[0m[0m id                        = (known after apply)
+          [32m+[0m[0m name                      = (known after apply)
+          [32m+[0m[0m storage_account_type      = "Standard_LRS"
+          [32m+[0m[0m write_accelerator_enabled = false
+        }
+
+      [32m+[0m[0m source_image_reference {
+          [32m+[0m[0m offer     = "0001-com-ubuntu-server-jammy"
+          [32m+[0m[0m publisher = "Canonical"
+          [32m+[0m[0m sku       = "22_04-lts"
+          [32m+[0m[0m version   = "latest"
+        }
+
+      [32m+[0m[0m termination_notification (known after apply)
+    }
+
+[1m  # module.vm_infra.module.Virtual_network.azurerm_virtual_network.for_each[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "azurerm_virtual_network" "for_each" {
+      [31m-[0m[0m flow_timeout_in_minutes        = 0 [90m-> null[0m[0m
+      [33m~[0m[0m guid                           = "708d16f3-743a-43c2-ba80-00b093f14532" -> (known after apply)
+      [33m~[0m[0m id                             = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet" -> (known after apply)
+      [33m~[0m[0m location                       = "southindia" [33m->[0m[0m "centralindia" [31m# forces replacement[0m[0m
+        name                           = "4_each_vnet"
+      [33m~[0m[0m subnet                         = [
+          [31m-[0m[0m {
+              [31m-[0m[0m address_prefixes                              = [
+                  [31m-[0m[0m "10.0.1.0/24",
+                ]
+              [31m-[0m[0m default_outbound_access_enabled               = true
+              [31m-[0m[0m delegation                                    = []
+              [31m-[0m[0m id                                            = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet/subnets/Frontend"
+              [31m-[0m[0m name                                          = "Frontend"
+              [31m-[0m[0m private_endpoint_network_policies             = "Disabled"
+              [31m-[0m[0m private_link_service_network_policies_enabled = true
+              [31m-[0m[0m service_endpoint_policy_ids                   = []
+              [31m-[0m[0m service_endpoints                             = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m address_prefixes                              = [
+                  [31m-[0m[0m "10.0.2.0/24",
+                ]
+              [31m-[0m[0m default_outbound_access_enabled               = true
+              [31m-[0m[0m delegation                                    = []
+              [31m-[0m[0m id                                            = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet/subnets/Backend"
+              [31m-[0m[0m name                                          = "Backend"
+              [31m-[0m[0m private_endpoint_network_policies             = "Disabled"
+              [31m-[0m[0m private_link_service_network_policies_enabled = true
+              [31m-[0m[0m service_endpoint_policy_ids                   = []
+              [31m-[0m[0m service_endpoints                             = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m address_prefixes                              = [
+                  [31m-[0m[0m "10.0.3.0/26",
+                ]
+              [31m-[0m[0m default_outbound_access_enabled               = true
+              [31m-[0m[0m delegation                                    = []
+              [31m-[0m[0m id                                            = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet/subnets/AzureBastionSubnet"
+              [31m-[0m[0m name                                          = "AzureBastionSubnet"
+              [31m-[0m[0m private_endpoint_network_policies             = "Disabled"
+              [31m-[0m[0m private_link_service_network_policies_enabled = true
+              [31m-[0m[0m service_endpoint_policy_ids                   = []
+              [31m-[0m[0m service_endpoints                             = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m address_prefixes                              = [
+                  [31m-[0m[0m "10.0.4.0/24",
+                ]
+              [31m-[0m[0m default_outbound_access_enabled               = true
+              [31m-[0m[0m delegation                                    = []
+              [31m-[0m[0m id                                            = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet/subnets/Application_gateway"
+              [31m-[0m[0m name                                          = "Application_gateway"
+              [31m-[0m[0m private_endpoint_network_policies             = "Disabled"
+              [31m-[0m[0m private_link_service_network_policies_enabled = true
+              [31m-[0m[0m service_endpoint_policy_ids                   = []
+              [31m-[0m[0m service_endpoints                             = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+          [32m+[0m[0m {
+              [32m+[0m[0m address_prefixes                              = [
+                  [32m+[0m[0m "10.0.1.0/24",
+                ]
+              [32m+[0m[0m default_outbound_access_enabled               = true
+              [32m+[0m[0m delegation                                    = []
+              [32m+[0m[0m id                                            = (known after apply)
+              [32m+[0m[0m name                                          = "Frontend"
+              [32m+[0m[0m private_endpoint_network_policies             = "Disabled"
+              [32m+[0m[0m private_link_service_network_policies_enabled = true
+              [32m+[0m[0m service_endpoint_policy_ids                   = []
+              [32m+[0m[0m service_endpoints                             = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+          [32m+[0m[0m {
+              [32m+[0m[0m address_prefixes                              = [
+                  [32m+[0m[0m "10.0.2.0/24",
+                ]
+              [32m+[0m[0m default_outbound_access_enabled               = true
+              [32m+[0m[0m delegation                                    = []
+              [32m+[0m[0m id                                            = (known after apply)
+              [32m+[0m[0m name                                          = "Backend"
+              [32m+[0m[0m private_endpoint_network_policies             = "Disabled"
+              [32m+[0m[0m private_link_service_network_policies_enabled = true
+              [32m+[0m[0m service_endpoint_policy_ids                   = []
+              [32m+[0m[0m service_endpoints                             = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+          [32m+[0m[0m {
+              [32m+[0m[0m address_prefixes                              = [
+                  [32m+[0m[0m "10.0.3.0/26",
+                ]
+              [32m+[0m[0m default_outbound_access_enabled               = true
+              [32m+[0m[0m delegation                                    = []
+              [32m+[0m[0m id                                            = (known after apply)
+              [32m+[0m[0m name                                          = "AzureBastionSubnet"
+              [32m+[0m[0m private_endpoint_network_policies             = "Disabled"
+              [32m+[0m[0m private_link_service_network_policies_enabled = true
+              [32m+[0m[0m service_endpoint_policy_ids                   = []
+              [32m+[0m[0m service_endpoints                             = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+          [32m+[0m[0m {
+              [32m+[0m[0m address_prefixes                              = [
+                  [32m+[0m[0m "10.0.4.0/24",
+                ]
+              [32m+[0m[0m default_outbound_access_enabled               = true
+              [32m+[0m[0m delegation                                    = []
+              [32m+[0m[0m id                                            = (known after apply)
+              [32m+[0m[0m name                                          = "Application_gateway"
+              [32m+[0m[0m private_endpoint_network_policies             = "Disabled"
+              [32m+[0m[0m private_link_service_network_policies_enabled = true
+              [32m+[0m[0m service_endpoint_policy_ids                   = []
+              [32m+[0m[0m service_endpoints                             = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+        ]
+      [31m-[0m[0m tags                           = {} [90m-> null[0m[0m
+        [90m# (6 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vm_infra.module.application_gateway["Application_gateway"].azurerm_application_gateway.network[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_application_gateway" "network" {
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m location                    = "centralindia"
+      [32m+[0m[0m name                        = "Ramsetu"
+      [32m+[0m[0m private_endpoint_connection = (known after apply)
+      [32m+[0m[0m resource_group_name         = "4_each"
+
+      [32m+[0m[0m backend_address_pool {
+          [32m+[0m[0m fqdns        = []
+          [32m+[0m[0m id           = (known after apply)
+          [32m+[0m[0m ip_addresses = []
+          [32m+[0m[0m name         = "Frontend-Vm"
+        }
+
+      [32m+[0m[0m backend_http_settings {
+          [32m+[0m[0m cookie_based_affinity                = "Disabled"
+          [32m+[0m[0m dedicated_backend_connection_enabled = false
+          [32m+[0m[0m id                                   = (known after apply)
+          [32m+[0m[0m name                                 = "apg"
+          [32m+[0m[0m path                                 = "/path1/"
+          [32m+[0m[0m pick_host_name_from_backend_address  = false
+          [32m+[0m[0m port                                 = 80
+          [32m+[0m[0m probe_id                             = (known after apply)
+          [32m+[0m[0m protocol                             = "Http"
+          [32m+[0m[0m request_timeout                      = 60
+          [32m+[0m[0m trusted_root_certificate_names       = []
+            [90m# (3 unchanged attributes hidden)[0m[0m
+        }
+
+      [32m+[0m[0m frontend_ip_configuration {
+          [32m+[0m[0m id                            = (known after apply)
+          [32m+[0m[0m name                          = "Port_conf_frontend"
+          [32m+[0m[0m private_ip_address            = (known after apply)
+          [32m+[0m[0m private_ip_address_allocation = "Dynamic"
+          [32m+[0m[0m private_link_configuration_id = (known after apply)
+          [32m+[0m[0m public_ip_address_id          = (known after apply)
+        }
+
+      [32m+[0m[0m frontend_port {
+          [32m+[0m[0m id   = (known after apply)
+          [32m+[0m[0m name = "Port_frontend"
+          [32m+[0m[0m port = 80
+        }
+
+      [32m+[0m[0m gateway_ip_configuration {
+          [32m+[0m[0m id        = (known after apply)
+          [32m+[0m[0m name      = "Ramsetu"
+          [32m+[0m[0m subnet_id = (known after apply)
+        }
+
+      [32m+[0m[0m http_listener {
+          [32m+[0m[0m frontend_ip_configuration_id   = (known after apply)
+          [32m+[0m[0m frontend_ip_configuration_name = "Port_conf_frontend"
+          [32m+[0m[0m frontend_port_id               = (known after apply)
+          [32m+[0m[0m frontend_port_name             = "Port_frontend"
+          [32m+[0m[0m host_names                     = []
+          [32m+[0m[0m id                             = (known after apply)
+          [32m+[0m[0m name                           = "apg_listner"
+          [32m+[0m[0m protocol                       = "Http"
+          [32m+[0m[0m ssl_certificate_id             = (known after apply)
+          [32m+[0m[0m ssl_profile_id                 = (known after apply)
+            [90m# (4 unchanged attributes hidden)[0m[0m
+        }
+
+      [32m+[0m[0m request_routing_rule {
+          [32m+[0m[0m backend_address_pool_id     = (known after apply)
+          [32m+[0m[0m backend_address_pool_name   = "Frontend-Vm"
+          [32m+[0m[0m backend_http_settings_id    = (known after apply)
+          [32m+[0m[0m backend_http_settings_name  = "apg"
+          [32m+[0m[0m http_listener_id            = (known after apply)
+          [32m+[0m[0m http_listener_name          = "apg_listner"
+          [32m+[0m[0m id                          = (known after apply)
+          [32m+[0m[0m name                        = "apg"
+          [32m+[0m[0m priority                    = 110
+          [32m+[0m[0m redirect_configuration_id   = (known after apply)
+          [32m+[0m[0m rewrite_rule_set_id         = (known after apply)
+          [32m+[0m[0m rule_type                   = "Basic"
+          [32m+[0m[0m url_path_map_id             = (known after apply)
+            [90m# (3 unchanged attributes hidden)[0m[0m
+        }
+
+      [32m+[0m[0m sku {
+          [32m+[0m[0m capacity = 2
+          [32m+[0m[0m name     = "Standard_v2"
+          [32m+[0m[0m tier     = "Standard_v2"
+        }
+
+      [32m+[0m[0m ssl_policy (known after apply)
+    }
+
+[1m  # module.vm_infra.module.bastion_requ["AzureBastionSubnet"].azurerm_bastion_host.main[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_bastion_host" "main" {
+      [32m+[0m[0m copy_paste_enabled        = true
+      [32m+[0m[0m dns_name                  = (known after apply)
+      [32m+[0m[0m file_copy_enabled         = false
+      [32m+[0m[0m id                        = (known after apply)
+      [32m+[0m[0m ip_connect_enabled        = false
+      [32m+[0m[0m kerberos_enabled          = false
+      [32m+[0m[0m location                  = "centralindia"
+      [32m+[0m[0m name                      = "projectbastion"
+      [32m+[0m[0m resource_group_name       = "4_each"
+      [32m+[0m[0m scale_units               = 2
+      [32m+[0m[0m session_recording_enabled = false
+      [32m+[0m[0m shareable_link_enabled    = false
+      [32m+[0m[0m sku                       = "Basic"
+      [32m+[0m[0m tunneling_enabled         = false
+
+      [32m+[0m[0m ip_configuration {
+          [32m+[0m[0m name                 = "configuration"
+          [32m+[0m[0m public_ip_address_id = (known after apply)
+          [32m+[0m[0m subnet_id            = (known after apply)
+        }
+    }
+
+[1m  # module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "azurerm_private_dns_zone_virtual_network_link" "sql_dns_link" {
+      [33m~[0m[0m id                    = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net/virtualNetworkLinks/sql-dns-link" -> (known after apply)
+        name                  = "sql-dns-link"
+      [33m~[0m[0m resolution_policy     = "Default" -> (known after apply)
+      [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+      [33m~[0m[0m virtual_network_id    = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet" -> (known after apply) [31m# forces replacement[0m[0m
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0][0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "azurerm_private_dns_zone_virtual_network_link" "this" {
+      [33m~[0m[0m id                    = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/privateDnsZones/privatelink.discoveryservice.internal/virtualNetworkLinks/link-vnet-0-to-privatelink.discoveryservice.internal" -> (known after apply)
+        name                  = "link-vnet-0-to-privatelink.discoveryservice.internal"
+      [33m~[0m[0m resolution_policy     = "Default" -> (known after apply)
+      [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+      [33m~[0m[0m virtual_network_id    = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet" -> (known after apply) [31m# forces replacement[0m[0m
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vm_infra.module.public_ip[0].azurerm_public_ip.for_each[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_public_ip" "for_each" {
+      [32m+[0m[0m allocation_method       = "Static"
+      [32m+[0m[0m ddos_protection_mode    = "VirtualNetworkInherited"
+      [32m+[0m[0m fqdn                    = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m idle_timeout_in_minutes = 4
+      [32m+[0m[0m ip_address              = (known after apply)
+      [32m+[0m[0m ip_version              = "IPv4"
+      [32m+[0m[0m location                = "centralindia"
+      [32m+[0m[0m name                    = "pip-0"
+      [32m+[0m[0m resource_group_name     = "4_each"
+      [32m+[0m[0m sku                     = "Standard"
+      [32m+[0m[0m sku_tier                = "Regional"
+      [32m+[0m[0m zones                   = [
+          [32m+[0m[0m "1",
+          [32m+[0m[0m "2",
+          [32m+[0m[0m "3",
+        ]
+    }
+
+[1m  # module.vm_infra.module.public_ip[1].azurerm_public_ip.for_each[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_public_ip" "for_each" {
+      [32m+[0m[0m allocation_method       = "Static"
+      [32m+[0m[0m ddos_protection_mode    = "VirtualNetworkInherited"
+      [32m+[0m[0m fqdn                    = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m idle_timeout_in_minutes = 4
+      [32m+[0m[0m ip_address              = (known after apply)
+      [32m+[0m[0m ip_version              = "IPv4"
+      [32m+[0m[0m location                = "centralindia"
+      [32m+[0m[0m name                    = "pip-1"
+      [32m+[0m[0m resource_group_name     = "4_each"
+      [32m+[0m[0m sku                     = "Standard"
+      [32m+[0m[0m sku_tier                = "Regional"
+      [32m+[0m[0m zones                   = [
+          [32m+[0m[0m "1",
+          [32m+[0m[0m "2",
+          [32m+[0m[0m "3",
+        ]
+    }
+
+[1m  # module.vm_infra.module.public_ip[2].azurerm_public_ip.for_each[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_public_ip" "for_each" {
+      [32m+[0m[0m allocation_method       = "Static"
+      [32m+[0m[0m ddos_protection_mode    = "VirtualNetworkInherited"
+      [32m+[0m[0m fqdn                    = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m idle_timeout_in_minutes = 4
+      [32m+[0m[0m ip_address              = (known after apply)
+      [32m+[0m[0m ip_version              = "IPv4"
+      [32m+[0m[0m location                = "centralindia"
+      [32m+[0m[0m name                    = "pip-2"
+      [32m+[0m[0m resource_group_name     = "4_each"
+      [32m+[0m[0m sku                     = "Standard"
+      [32m+[0m[0m sku_tier                = "Regional"
+      [32m+[0m[0m zones                   = [
+          [32m+[0m[0m "1",
+          [32m+[0m[0m "2",
+          [32m+[0m[0m "3",
+        ]
+    }
+
+[1m  # module.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "azurerm_resource_group" "for_each" {
+      [33m~[0m[0m id         = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each" -> (known after apply)
+      [33m~[0m[0m location   = "southindia" [33m->[0m[0m "centralindia" [31m# forces replacement[0m[0m
+        name       = "4_each"
+      [31m-[0m[0m tags       = {} [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m27 to add, 0 to change, 9 to destroy.
+
+Changes to Outputs:
+  [32m+[0m[0m pvt_dns_zone_peering_main = "privatelink.discoveryservice.internal"
+  [33m~[0m[0m subn_id1                  = {
+      [33m~[0m[0m Application_gateway = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet/subnets/Application_gateway" -> (known after apply)
+      [33m~[0m[0m AzureBastionSubnet  = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet/subnets/AzureBastionSubnet" -> (known after apply)
+      [33m~[0m[0m Backend             = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet/subnets/Backend" -> (known after apply)
+      [33m~[0m[0m Frontend            = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet/subnets/Frontend" -> (known after apply)
+    }
+  [33m~[0m[0m vnet_id1                  = "/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet" -> (known after apply)
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/privateDnsZones/privatelink.discoveryservice.internal/virtualNetworkLinks/link-vnet-0-to-privatelink.discoveryservice.internal][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net/virtualNetworkLinks/sql-dns-link][0m[0m
+[0m[1mmodule.Aks_infra.module.acr.azurerm_container_registry.main: Destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.ContainerRegistry/registries/dhandhandhana1215][0m[0m
+[0m[1mmodule.vm_infra.module.NSG.azurerm_network_security_group.rules: Destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/networkSecurityGroups/NSG_rules][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 00m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 00m10s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.acr.azurerm_container_registry.main: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...rRegistry/registries/dhandhandhana1215, 00m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.NSG.azurerm_network_security_group.rules: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...etwork/networkSecurityGroups/NSG_rules, 00m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.NSG.azurerm_network_security_group.rules: Destruction complete after 12s[0m
+[0m[1mmodule.Aks_infra.module.acr.azurerm_container_registry.main: Destruction complete after 13s[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.ContainerService/managedClusters/g15-aks-cluster][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 00m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 00m20s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 00m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 00m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 00m30s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 00m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 00m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 00m40s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 00m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 00m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 00m50s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 00m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 01m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 01m00s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 00m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 01m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 01m10s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 01m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 01m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 01m20s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 01m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 01m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 01m30s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 01m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 01m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 01m40s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 01m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 01m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 01m50s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 01m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 02m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 02m00s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 01m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 02m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 02m10s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 02m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 02m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 02m20s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 02m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 02m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 02m30s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 02m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 02m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...-privatelink.discoveryservice.internal, 02m40s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 02m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.this[0]: Destruction complete after 2m47s[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...s.net/virtualNetworkLinks/sql-dns-link, 02m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.private_dns_zone.azurerm_private_dns_zone_virtual_network_link.sql_dns_link: Destruction complete after 2m51s[0m
+[0m[1mmodule.vm_infra.module.Virtual_network.azurerm_virtual_network.for_each: Destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each/providers/Microsoft.Network/virtualNetworks/4_each_vnet][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 02m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.Virtual_network.azurerm_virtual_network.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ft.Network/virtualNetworks/4_each_vnet, 00m10s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 02m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.Virtual_network.azurerm_virtual_network.for_each: Destruction complete after 13s[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...ervice/managedClusters/g15-aks-cluster, 03m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 00m10s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.aks.azurerm_kubernetes_cluster.aks: Destruction complete after 3m7s[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 00m20s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.vnet.azurerm_virtual_network.aks_vnet: Destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r/providers/Microsoft.Network/virtualNetworks/aks-vnet][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 00m30s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.vnet.azurerm_virtual_network.aks_vnet: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-...osoft.Network/virtualNetworks/aks-vnet, 00m10s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.vnet.azurerm_virtual_network.aks_vnet: Destruction complete after 11s[0m
+[0m[1mmodule.Aks_infra.module.rg.azurerm_resource_group.aks_rg: Destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 00m40s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.rg.azurerm_resource_group.aks_rg: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r, 00m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 00m50s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.rg.azurerm_resource_group.aks_rg: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r, 00m20s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.rg.azurerm_resource_group.aks_rg: Destruction complete after 23s[0m
+[0m[1mmodule.Aks_infra.module.rg.azurerm_resource_group.aks_rg: Creating...[0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 01m00s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.rg.azurerm_resource_group.aks_rg: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 01m10s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.rg.azurerm_resource_group.aks_rg: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 01m20s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.rg.azurerm_resource_group.aks_rg: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 01m30s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.rg.azurerm_resource_group.aks_rg: Creation complete after 39s [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/aks_r][0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 01m40s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.vnet.azurerm_virtual_network.aks_vnet: Creating...[0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 01m50s elapsed][0m[0m
+[0m[1mmodule.Aks_infra.module.vnet.azurerm_virtual_network.aks_vnet: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 02m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 02m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 02m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 02m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 02m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 02m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 03m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 03m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 03m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 03m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 03m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 03m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 04m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 04m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 04m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 04m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 04m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 04m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 05m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 05m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 05m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 05m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 05m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 05m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 06m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 06m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 06m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 06m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 06m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 06m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 07m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 07m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 07m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 07m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 07m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 07m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 08m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 08m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 08m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 08m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 08m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 08m50s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 09m00s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 09m10s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 09m20s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 09m30s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 09m40s elapsed][0m[0m
+[0m[1mmodule.vm_infra.module.resource_group["4_each"].azurerm_resource_group.for_each: Still destroying... [id=/subscriptions/ff1980ab-1170-4014-971d-df65aabf1e5b/resourceGroups/4_each, 09m50s elapsed][0m[0m
+Releasing state lock. This may take a few moments...

@@ -14,7 +14,7 @@ Project = {
 
   #================== for resource Group requirement==================
   resource_group = {
-    rg1      = ["4_each"]
+    rg1      = ["vm_infra_rg"]
     Location = "centralindia"
   }
 
@@ -54,7 +54,7 @@ Project = {
       protocol                   = "Tcp"
       source_port_range          = "*"
       destination_port_range     = "22"
-      source_address_prefix      = "*"
+      source_address_prefix      = "VirtualNetwork"
       destination_address_prefix = "*"
 
     }

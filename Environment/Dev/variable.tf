@@ -1,5 +1,5 @@
 
-
+# variable "vnet_aks_id" {}
 
 # AKS and infra variables
 variable "aks_vnet" {

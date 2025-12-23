@@ -127,13 +127,13 @@ module "application_gateway" {
 
 # 10. SQL Server
 module "SQL_server" {
-  depends_on = [ module.resource_group,]
+  depends_on = [ module.resource_group]
   source     = "./module/azurerm_SQL_server"
   SQL_server = var.SQL_server
   rg_nam     = var.Project.resource_group.rg1[0]
   locatio    = var.Project.resource_group.Location
   backend_subnet_id  = module.Virtual_network.subnet_ids["Backend"]
-  sql_private_dns_zone_id = [module.private_dns_zone.Sql_dns1]
+  sql_private_dns_zone_id = [module.private_dns_zone.Sql_dns1]  #........#########
 }
 
 # 11. PRIVATE DNS ZONE (LAST)

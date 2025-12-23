@@ -15,12 +15,13 @@ resource "azurerm_mssql_server" "main" {
 }
 
 resource "azurerm_mssql_database" "db" {
-    depends_on = [ azurerm_mssql_server.main ]
+  depends_on = [ azurerm_mssql_server.main ]
   name      = azurerm_mssql_server.main.name
   server_id = azurerm_mssql_server.main.id
 }
 
 resource "azurerm_private_endpoint" "sql_pe" {
+  depends_on = [ azurerm_mssql_server.main ]
   name                = "sql-private-endpoint"
   location            = var.locatio
   resource_group_name = var.rg_nam
