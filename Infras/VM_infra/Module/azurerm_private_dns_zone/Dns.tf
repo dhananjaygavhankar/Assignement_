@@ -13,12 +13,18 @@ output "pvt_dns_zone_peering" {
 
 # VNet Links
 resource "azurerm_private_dns_zone_virtual_network_link" "this" {
-  count               = length(var.virtual_network_ids)
-  name                = "link-vnet-${count.index}-to-${var.dns_zone_name}"
-  resource_group_name = var.rg_nam
+  # count               = length(var.virtual_network_ids)
+  # name                = "link-vnet-${count.index}-to-${var.dns_zone_name}"
+  # resource_group_name = var.rg_nam
+  # private_dns_zone_name = azurerm_private_dns_zone.sql_dns.name
+  # virtual_network_id = var.virtual_network_ids[count.index]
+  # registration_enabled  = true
+   for_each = var.virtual_network_ids
+  name                  = "link-${each.key}"
+  resource_group_name   = var.rg_nam
   private_dns_zone_name = azurerm_private_dns_zone.sql_dns.name
-  virtual_network_id = var.virtual_network_ids[count.index]
-  registration_enabled  = true
+  virtual_network_id    = each.value.id
+  registration_enabled  = each.value.registration
 }
 
 # A Record - FIXED REFERENCE
@@ -48,11 +54,11 @@ output "Sql_dns1"{
   value = azurerm_private_dns_zone.sql_dns.id
 }
 
-resource "azurerm_private_dns_zone_virtual_network_link" "sql_dns_link" {
-  depends_on = [ azurerm_private_dns_zone.sql_dns ]
-  name                  = "sql-dns-link"
-  resource_group_name   = var.rg_nam
-  private_dns_zone_name = azurerm_private_dns_zone.sql_dns.name
-  virtual_network_id    = var.vnet_id
-  registration_enabled  = false
-}
+# resource "azurerm_private_dns_zone_virtual_network_link" "sql_dns_link" {
+#   depends_on = [ azurerm_private_dns_zone.sql_dns ]
+#   name                  = "sql-dns-link"
+#   resource_group_name   = var.rg_nam
+#   private_dns_zone_name = azurerm_private_dns_zone.sql_dns.name
+#   virtual_network_id    = var.vnet_id
+#   registration_enabled  = false
+# }

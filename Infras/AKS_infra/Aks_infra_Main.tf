@@ -54,6 +54,11 @@ module "vnet" {
   vm2take       = var.vm2take
   address_space = ["10.1.0.0/16"] # adjust as per your network design
 }
+
+output "Aks_vnet_id"{
+  value = module.vnet.vnet_id
+}
+
 # module "vnet" {
 #   source      = "./Child/vlan"
 #   depends_on  = [module.rg]

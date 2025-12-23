@@ -56,4 +56,5 @@ variable "Project" {
 }
 
 variable "SQL_server" {}
+variable "vnet_aks_id"{}
 

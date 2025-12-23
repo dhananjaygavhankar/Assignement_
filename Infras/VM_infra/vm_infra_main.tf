@@ -136,6 +136,18 @@ module "SQL_server" {
   sql_private_dns_zone_id = [module.private_dns_zone.Sql_dns1]  #........#########
 }
 
+locals {
+  vnet_registration = {
+    vm_vnet = {
+      id           = module.Virtual_network.vnet_id
+      registration = true
+    }
+    aks_vnet = {
+      id           = var.vnet_aks_id
+      registration = false
+    }
+  }
+}
 # 11. PRIVATE DNS ZONE (LAST)
 module "private_dns_zone" {
   depends_on = [ module.resource_group]
@@ -143,15 +155,14 @@ module "private_dns_zone" {
   rg_nam              = var.Project.resource_group.rg1[0]
   locatio             = var.Project.resource_group.Location
   dns_zone_name       = "privatelink.discoveryservice.internal"
-  virtual_network_ids = [module.Virtual_network.vnet_id]
+  # virtual_network_ids = [module.Virtual_network.vnet_id, var.vnet_aks_id]
+    virtual_network_ids = local.vnet_registration
   record_name         = "discoveryservice"
   private_ip          = "10.0.2.4"
   vnet_id = module.Virtual_network.vnet_id
 }
 
-output "pvt_dns_zone_peering_main" {
-  value = module.private_dns_zone.pvt_dns_zone_peering
-}
+
 
 module "bastion_requ"{
   source     = "./module/azurem_bastion"
@@ -179,7 +190,9 @@ output "dns_zone_name" {
   value = module.private_dns_zone.zone_name_child
 }
 
-
+output "pvt_dns_zone_peering_main" {
+  value = module.private_dns_zone.pvt_dns_zone_peering
+}
 
 
 
